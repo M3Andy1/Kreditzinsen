@@ -84,7 +84,7 @@ cash=0
 for a in range (0,Laufzeit):
     
     Gesamtrueckzahlung.append(cash)
-    cash=cash+np.Monatsrate[a]
+    cash=cash+Monatsrate[a]
     
 Laufzeit_list=np.linspace(0, Laufzeit-1, Laufzeit)
 
