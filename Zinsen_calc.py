@@ -93,8 +93,9 @@ with col1:
     st.write(np.mean(Monatsrate_fix)*Laufzeit) 
 
 with col2:
-    st.write('Kreditrate pro Monat € mit Variablen Zins')
-    st.write(np.mean(Monatsrate_variable)/12) 
+    st.write('Kreditrate pro Monat € mit Variablen Zins [min/max]')
+    st.write(np.min(Monatsrate_variable)/12) 
+    st.write(np.max(Monatsrate_variable)/12) 
     st.write('Gesamtrückzahlung variable')
     st.write(np.mean(Monatsrate_variable)*Laufzeit) 
 
