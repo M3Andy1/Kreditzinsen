@@ -57,43 +57,80 @@ Fixzinsgarantie=st.number_input('Fixzinsgarantie in Jahren',value=15)
 
 zero_zins_rate=Kreditsumme*1.05/Laufzeit
 
-Kreditrestwert=[]
-Monatsrate=[]
+Kreditrestwert_fix=[]
+Monatsrate_fix=[]
 Restwert=Kreditsumme*1.05
 for i in range (0,Laufzeit):
     
     if i<Fixzinsgarantie:
         Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)
-        Monatsrate.append(Zinsen+zero_zins_rate)
+        Monatsrate_fix.append(Zinsen+zero_zins_rate)
         Restwert=Restwert-zero_zins_rate
-        Kreditrestwert.append(Restwert)
+        Kreditrestwert_fix.append(Restwert)
     else:
         Zinsen=Restwert*((predicted_EZB[i]+EZB_Aufschlag)/100)
-        Monatsrate.append(Zinsen+zero_zins_rate)
+        Monatsrate_fix.append(Zinsen+zero_zins_rate)
         Restwert=Restwert-zero_zins_rate
-        Kreditrestwert.append(Restwert)
+        Kreditrestwert_fix.append(Restwert)
+
+
+Kreditrestwert_variable=[]
+Monatsrate_variable=[]
+Restwert=Kreditsumme*1.05
+for i in range (0,Laufzeit):
+    
+    Zinsen=Restwert*((predicted_EZB[i]+EZB_Aufschlag)/100)
+    Monatsrate_variable.append(Zinsen+zero_zins_rate)
+    Restwert=Restwert-zero_zins_rate
+    Kreditrestwert_variable.append(Restwert)
+
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write('Kreditrate pro Monat € mit Fixzins')
+    st.write(np.mean(Monatsrate_fix)/12) 
+    st.write('Gesamtrückzahlung fix zins')
+    st.write(np.mean(Monatsrate_fix)*Laufzeit) 
+
+with col2:
+    st.write('Kreditrate pro Monat € mit Variablen Zins')
+    st.write(np.mean(Monatsrate_variable)/12) 
+    st.write('Gesamtrückzahlung variable')
+    st.write(np.mean(Monatsrate_variable)*Laufzeit) 
 
 
 
+#st.write(Monatsrate)
+#st.write(Kreditrestwert) 
 
 
-st.write(Monatsrate)
-st.write(Kreditrestwert) 
 
-st.write('Kreditrate pro Monat € mit Fixzins')
-st.write(np.mean(Monatsrate)/12) 
-st.write('Gesamtrückzahlung')
-st.write(np.mean(Monatsrate)*Laufzeit) 
-
-Gesamtrueckzahlung=[]
+Gesamtrueckzahlung_fix=[]
 cash=0
 for a in range (0,Laufzeit):
     
-    Gesamtrueckzahlung.append(cash)
-    cash=cash+Monatsrate[a]
+    Gesamtrueckzahlung_fix.append(cash)
+    cash=cash+Monatsrate_fix[a]
+    
+    
+Gesamtrueckzahlung_variable=[]
+cash=0
+for a in range (0,Laufzeit):
+    
+    Gesamtrueckzahlung_variable.append(cash)
+    cash=cash+Monatsrate_variable[a]
+    
+    
+     
+    
+    
+    
+    
     
 Laufzeit_list=np.linspace(0, Laufzeit-1, Laufzeit)
 
-df1 = pd.DataFrame({'Month': Laufzeit_list, 'Gesamtrueckzahlung Fix Zis': Gesamtrueckzahlung, 'Restwert Kredit': Kreditrestwert})
+
+
+df1 = pd.DataFrame({'Month': Laufzeit_list, 'Gesamtrueckzahlung Fix Zins': Gesamtrueckzahlung_fix, 'Gesamtrueckzahlung Variable Zins': Gesamtrueckzahlung_variable,'Restwert Kredit': Kreditrestwert})
 df1.set_index('Month', inplace=True)
 st.line_chart(df1)
