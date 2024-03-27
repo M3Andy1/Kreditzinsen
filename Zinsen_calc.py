@@ -59,7 +59,7 @@ Kreditrestwert=[]
 Monatsrate=[]
 Restwert=Kreditsumme
 for i in range (0,Laufzeit):
-    Zinsen=Restwert*(Fixzins/100)/12
+    Zinsen=Restwert*(Fix_Zins/100)/12
     Monatsrate.append(Zinsen+zero_zins_rate)
     Restwert=Restwert-zero_zins_rate
     Kreditrestwert.append(Restwert)
