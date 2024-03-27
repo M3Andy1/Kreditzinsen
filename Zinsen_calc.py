@@ -39,4 +39,4 @@ x_values = np.linspace(0, 30, 16)
 
 df = pd.DataFrame({'X': x_values, 'Predicted EZB': predicted_EZB})
 
-st.line_chart(df, x="x_values", y=["Predicted EZB"], color=["#FF0000", "#0000FF"] )
+st.line_chart(df, x=x_values, y=Predicted EZB, color=["#FF0000", "#0000FF"] )
