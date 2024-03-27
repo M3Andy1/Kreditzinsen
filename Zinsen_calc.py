@@ -40,7 +40,7 @@ with col2:
     st.write('Predicted Leitzins every 2 years') 
     predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
     x_values = np.linspace(0, 30, 16)
-    predicted_EZB_m_Aufschlag=predicted_EZB+EZB_Aufschlag
+    predicted_EZB_m_Aufschlag= [x + EZB_Aufschlagfor x in predicted_EZB]
     Fixzins=np.linspace(Fix_Zins, Fix_Zins, 16)
     
     #df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB, 'predicted_EZB_m_Aufschlag"': predicted_EZB_m_Aufschlag,'Fixzins"': Fixzins})
