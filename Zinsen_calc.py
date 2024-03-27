@@ -132,6 +132,6 @@ Laufzeit_list=np.linspace(0, Laufzeit-1, Laufzeit)
 
 
 
-df1 = pd.DataFrame({'Month': Laufzeit_list, 'Gesamtrueckzahlung Fix Zins': Gesamtrueckzahlung_fix, 'Gesamtrueckzahlung Variable Zins': Gesamtrueckzahlung_variable, 'Restwert Kredit': Kreditrestwert})
+df1 = pd.DataFrame({'Month': Laufzeit_list, 'Gesamtrueckzahlung Fix Zins': Gesamtrueckzahlung_fix,  'Restwert Kredit': Kreditrestwert})
 df1.set_index('Month', inplace=True)
 st.line_chart(df1)
