@@ -122,8 +122,8 @@ for a in range (0,Laufzeit):
     
     
      
-st.write(Gesamtrueckzahlung_fix)
-st.write(Gesamtrueckzahlung_variable)     
+# st.write(Gesamtrueckzahlung_fix)
+# st.write(Gesamtrueckzahlung_variable)     
     
     
     
