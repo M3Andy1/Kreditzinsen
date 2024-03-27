@@ -62,10 +62,16 @@ Monatsrate=[]
 Restwert=Kreditsumme*1.05
 for i in range (0,Laufzeit):
     
-    Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)
-    Monatsrate.append(Zinsen+zero_zins_rate)
-    Restwert=Restwert-zero_zins_rate
-    Kreditrestwert.append(Restwert)
+    if Laufzeit[i]<Fixzinsgarantie:
+        Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)
+        Monatsrate.append(Zinsen+zero_zins_rate)
+        Restwert=Restwert-zero_zins_rate
+        Kreditrestwert.append(Restwert)
+    else:
+        Zinsen=Restwert*((predicted_EZB[i]+EZB_Aufschlag)/100)
+        Monatsrate.append(Zinsen+zero_zins_rate)
+        Restwert=Restwert-zero_zins_rate
+        Kreditrestwert.append(Restwert)
 
 
 
