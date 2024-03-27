@@ -5,7 +5,7 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 
-st.write('This script helps to predict loan costs for fixed and variable interest rates')
+st.write('This script helps to predict loan costs for fixed and variable interest rates Copright Andreas Puntigam')
 
 
 
@@ -68,7 +68,7 @@ for i in range (0,Laufzeit):
         Restwert=Restwert-zero_zins_rate
         Kreditrestwert_fix.append(Restwert)
     else:
-        Zinsen=Restwert*((predicted_EZB[i]+EZB_Aufschlag)/100)
+        Zinsen=Restwert*((predicted_EZB_m_Aufschlag[i]+EZB_Aufschlag)/100)
         Monatsrate_fix.append(Zinsen+zero_zins_rate)
         Restwert=Restwert-zero_zins_rate
         Kreditrestwert_fix.append(Restwert)
@@ -79,7 +79,7 @@ Monatsrate_variable=[]
 Restwert=Kreditsumme*1.05
 for i in range (0,Laufzeit):
     
-    Zinsen=Restwert*((predicted_EZB[i]+EZB_Aufschlag)/100)
+    Zinsen=Restwert*((predicted_EZB_m_Aufschlag[i]+EZB_Aufschlag)/100)
     Monatsrate_variable.append(Zinsen+zero_zins_rate)
     Restwert=Restwert-zero_zins_rate
     Kreditrestwert_variable.append(Restwert)
