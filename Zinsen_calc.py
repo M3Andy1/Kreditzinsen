@@ -59,10 +59,15 @@ Kreditrestwert=[]
 Monatsrate=[]
 Restwert=Kreditsumme
 for i in range (0,Laufzeit):
-    Zinsen=Restwert*(Fix_Zins/100)/12
+    Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)/12
     Monatsrate.append(Zinsen+zero_zins_rate)
     Restwert=Restwert-zero_zins_rate
     Kreditrestwert.append(Restwert)
 
 st.write(Monatsrate)
 st.write(Kreditrestwert) 
+
+st.write('Kreditrate pro Monat € mit Fixzins')
+st.write(np.mean(Monatsrate)) 
+st.write('Gesamtrückzahlung')
+st.write(np.mean(Monatsrate)*Laufzeit) 
