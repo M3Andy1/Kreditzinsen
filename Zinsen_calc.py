@@ -39,11 +39,11 @@ with col2:
     zins_28=st.number_input('28',1.5)
     zins_30=st.number_input('30',1.5)
 
-    predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
-    x_values = np.linspace(0, 30, 16)
-    st.write('Predicted Leitzins')
-    df = pd.DataFrame({'Years': x_values, 'Predicted EZB Leitzins [%]': predicted_EZB})
-    st.line_chart(df, x="Years", y="Predicted EZB Leitzins [%]")
+predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
+x_values = np.linspace(0, 30, 16)
+st.write('Predicted Leitzins')
+df = pd.DataFrame({'Years': x_values, 'Predicted EZB Leitzins [%]': predicted_EZB})
+st.line_chart(df, x="Years", y="Predicted EZB Leitzins [%]")
 
 
 
