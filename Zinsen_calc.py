@@ -44,6 +44,7 @@ with col2:
     Fixzins=np.linspace(Fix_Zins, Fix_Zins, 16)
     
     df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB, 'predicted_EZB_m_Aufschlag"': predicted_EZB_m_Aufschlag,'Fixzins"': Fixzins})
-    
-    st.line_chart(df, x="Years", y=["Predicted EZB","predicted_EZB_m_Aufschlag","Fixzins"])
+    df.set_index('Years', inplace=True)
+    st.line_chart(df)
+    #st.line_chart(df, x="Years", y=["Predicted EZB","predicted_EZB_m_Aufschlag","Fixzins"])
     
