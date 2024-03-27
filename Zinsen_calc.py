@@ -53,11 +53,11 @@ st.write('Kredit Berechnung')
 Kreditsumme=st.number_input('Kreditbetrag',value=300000)
 Laufzeit=st.number_input('Laufzeit Monate',value=360)
 
-zero_zins_rate=Kreditsumme/Laufzeit
+zero_zins_rate=Kreditsumme*1.1/Laufzeit
 
 Kreditrestwert=[]
 Monatsrate=[]
-Restwert=Kreditsumme
+Restwert=Kreditsumme*1.1
 for i in range (0,Laufzeit):
     Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)/12
     Monatsrate.append(Zinsen+zero_zins_rate)
@@ -71,3 +71,16 @@ st.write('Kreditrate pro Monat € mit Fixzins')
 st.write(np.mean(Monatsrate)) 
 st.write('Gesamtrückzahlung')
 st.write(np.mean(Monatsrate)*Laufzeit) 
+
+Gesamtrueckzahlung=[]
+cash=0
+for a in range (0,Laufzeit):
+    
+    Gesamtrueckzahlung.append(cash)
+    cash=cash+np.mean(Monatsrate)
+    
+Laufzeit_list=np.linspace(0, Laufzeit-1, Laufzeit)
+
+df1 = pd.DataFrame({'Month': Laufzeit_list, 'Gesamtrueckzahlung': Gesamtrueckzahlung, 'Restwert Kredit': Kreditrestwert})
+df1.set_index('Month', inplace=True)
+st.line_chart(df1)
