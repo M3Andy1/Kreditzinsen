@@ -35,6 +35,8 @@ with col2:
 predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
 x_values = np.linspace(0, 30, 16)
 
+
+
 df = pd.DataFrame({'X': x_values, 'Predicted EZB': predicted_EZB})
 
-st.line_chart(chart_data, x="x_values", y=["Predicted EZB"], color=["#FF0000", "#0000FF"] )
+st.line_chart(df, x="x_values", y=["Predicted EZB"], color=["#FF0000", "#0000FF"] )
