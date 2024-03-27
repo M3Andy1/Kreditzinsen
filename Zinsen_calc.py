@@ -43,8 +43,26 @@ with col2:
     predicted_EZB_m_Aufschlag= [x + EZB_Aufschlag for x in predicted_EZB]
     Fixzins=np.linspace(Fix_Zins, Fix_Zins, 16)
     
-    df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB, 'predicted_EZB_m_Aufschlag"': predicted_EZB_m_Aufschlag,'Fixzins"': Fixzins})
+    df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB, 'predicted_EZB_m_Aufschlag': predicted_EZB_m_Aufschlag,'Fixzins': Fixzins})
     df.set_index('Years', inplace=True)
     st.line_chart(df)
     #st.line_chart(df, x="Years", y=["Predicted EZB","predicted_EZB_m_Aufschlag","Fixzins"])
     
+    
+st.write('Kredit Berechnung')
+Kreditsumme=st.number_input('Kreditbetrag',value=300000)
+Laufzeit=st.number_input('Laufzeit Monate',value=360)
+
+zero_zins_rate=Kreditsumme/Laufzeit
+
+Kreditrestwert=[]
+Monatsrate=[]
+Restwert=Kreditsumme
+for i in range (0,Laufzeit):
+    Zinsen=Restwert*(Fixzins/100)/12
+    Monatsrate.append(Zinsen+zero_zins_rate)
+    Restwert=Restwert-zero_zins_rate
+    Kreditrestwert.append(Restwert)
+
+st.write(Monatsrate)
+st.write(Kreditrestwert) 
