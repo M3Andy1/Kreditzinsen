@@ -37,7 +37,4 @@ x_values = np.linspace(0, 30, 16)
 
 df = pd.DataFrame({'X': x_values, 'Predicted EZB': predicted_EZB})
 
-fig = px.line(df, x='X', y='Predicted EZB', title='Predicted EZB over Time')
-
-# Display plot
-st.plotly_chart(fig)
+st.line_chart(chart_data, x="x_values", y=["Predicted EZB"], color=["#FF0000", "#0000FF"] )
