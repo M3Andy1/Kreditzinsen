@@ -7,13 +7,11 @@ import numpy as np
 
 st.write('This script helps to predict loan costs for fixed and variable interest rates')
 
-col1, col2 = st.columns(2)
+
 
 st.write('Past Leitzins')
 ezb_image = st.image('./chart.jpeg')
 st.write('Predicted Leitzins every 2 years') 
-
-
 col1, col2 = st.columns(2)
 with col1:
     Start_zins=st.number_input('Start Leitzins 0',4.5)
@@ -24,9 +22,6 @@ with col1:
     zins_10=st.number_input('10',2)
     zins_12=st.number_input('12',2)
     zins_14=st.number_input('14',2.5)
-    st.write('Past Leitzins')
-    ezb_image = st.image('./chart.jpeg')
-    
     
 with col2:
 
@@ -41,11 +36,9 @@ with col2:
 
 predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
 x_values = np.linspace(0, 30, 16)
-st.write('Predicted Leitzins')
+
+
+
 df = pd.DataFrame({'Years': x_values, 'Predicted EZB Leitzins [%]': predicted_EZB})
-st.line_chart(df, x="Years", y="Predicted EZB Leitzins [%]")
 
-
-
-
-
+st.line_chart(df, x="X", y="Predicted EZB")
