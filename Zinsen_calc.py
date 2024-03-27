@@ -38,10 +38,10 @@ with col2:
     zins_28=st.number_input('28',value=1.5)
     zins_30=st.number_input('30',value=1.5)
     st.write('Predicted Leitzins every 2 years') 
-    predicted_EZB=[Start_zins,zins_2,zins_4,zins_6,zins_8,zins_10,zins_12,zins_14,zins_16,zins_18,zins_20,zins_22,zins_24,zins_26,zins_28,zins_30]
-    x_values = np.linspace(0, 30, 16)
+    predicted_EZB=[Start_zins,zins_2,zins_4,zins_4,zins_6,zins_6,zins_8,zins_8,zins_10,zins_10,zins_12,zins_12,zins_14,zins_14,zins_16,zins_16,zins_18,zins_18,zins_20,zins_20,zins_22,zins_22,zins_24,zins_24,zins_26,zins_26,zins_28,zins_28,zins_30,zins_30]
+    x_values = np.linspace(0, 29, 30)
     predicted_EZB_m_Aufschlag= [x + EZB_Aufschlag for x in predicted_EZB]
-    Fixzins=np.linspace(Fix_Zins, Fix_Zins, 16)
+    Fixzins=np.linspace(Fix_Zins, Fix_Zins, 30)
     
     df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB, 'predicted_EZB_m_Aufschlag': predicted_EZB_m_Aufschlag,'Fixzins': Fixzins})
     df.set_index('Years', inplace=True)
@@ -70,7 +70,7 @@ st.write(Monatsrate)
 st.write(Kreditrestwert) 
 
 st.write('Kreditrate pro Monat € mit Fixzins')
-st.write(np.mean(Monatsrate)) 
+st.write(np.mean(Monatsrate)/12) 
 st.write('Gesamtrückzahlung')
 st.write(np.mean(Monatsrate)*Laufzeit) 
 
