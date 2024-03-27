@@ -41,7 +41,7 @@ x_values = np.linspace(0, 30, 16)
 
 
 
-df = pd.DataFrame({'Years': x_values, 'Predicted EZB Leitzins [%]': predicted_EZB})
+
 
 
 
@@ -51,4 +51,5 @@ with col1:
 
 with col2:
     st.write('Predicted Leitzins')
+    df = pd.DataFrame({'Years': x_values, 'Predicted EZB Leitzins [%]': predicted_EZB})
     st.line_chart(df, x="Years", y="Predicted EZB Leitzins [%]")
