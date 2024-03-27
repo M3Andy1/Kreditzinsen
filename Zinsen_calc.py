@@ -41,6 +41,6 @@ with col2:
     
     
     
-    df = pd.DataFrame({'Years': x_values, 'Predicted EZB [%]': predicted_EZB})
+    df = pd.DataFrame({'Years': x_values, 'Predicted EZB': predicted_EZB})
     
-    st.line_chart(df, x="Years", y="Predicted EZB [%]")
+    st.line_chart(df, x="Years", y="Predicted EZB")
