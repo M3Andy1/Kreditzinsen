@@ -12,7 +12,7 @@ st.write('This script helps to predict loan costs for fixed and variable interes
 st.write('Past Leitzins')
 ezb_image = st.image('./chart.jpeg')
 st.write('Predicted Leitzins every 2 years') 
-EZB_Aufschlag=st.number_input('EZB Aufschalg',value=0.79)
+EZB_Aufschlag=st.number_input('EZB Aufschalg',value=0.5)
 Fix_Zins=st.number_input('Fix Zins',value=3.5)
 col1, col2 = st.columns(2)
 with col1:
