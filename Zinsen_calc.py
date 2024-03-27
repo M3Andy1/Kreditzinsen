@@ -53,11 +53,11 @@ st.write('Kredit Berechnung')
 Kreditsumme=st.number_input('Kreditbetrag',value=300000)
 Laufzeit=st.number_input('Laufzeit Monate',value=360)
 
-zero_zins_rate=Kreditsumme*1.1/Laufzeit
+zero_zins_rate=Kreditsumme*1.05/Laufzeit
 
 Kreditrestwert=[]
 Monatsrate=[]
-Restwert=Kreditsumme*1.1
+Restwert=Kreditsumme*1.05
 for i in range (0,Laufzeit):
     Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)/12
     Monatsrate.append(Zinsen+zero_zins_rate)
