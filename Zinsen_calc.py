@@ -16,7 +16,7 @@ with col1:
 with col2:
     st.write('Predicted Leitzins every 2 years')
     Start_zins=st.number_input('Start Leitzins 0')
-    zins_2=st.slider('2', min_value=0, max_value=6)
+    zins_2=st.slider('2', min_value=0.0, max_value=6.0)
     zins_4=st.slider('4', min_value=0, max_value=6)
     zins_6=st.slider('6', min_value=0, max_value=6)
     zins_8=st.slider('8', min_value=0, max_value=6)
