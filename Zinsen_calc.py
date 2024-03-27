@@ -1,4 +1,6 @@
 #Test file
 
 import streamlit as st
-st.button('Hit me')
+
+st.write('This script helps to predict loan costs for fixed and variable interest rates')
+st.image('./chart.jpg')
