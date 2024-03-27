@@ -8,13 +8,11 @@ import numpy as np
 st.write('This script helps to predict loan costs for fixed and variable interest rates')
 
 col1, col2 = st.columns(2)
+
+st.write('Past Leitzins')
+ezb_image = st.image('./chart.jpeg')
+st.write('Predicted Leitzins every 2 years') 
 with col1:
-    st.write('Past Leitzins')
-    ezb_image = st.image('./chart.jpeg')
-    
-    
-with col2:
-    st.write('Predicted Leitzins every 2 years')
     Start_zins=st.number_input('Start Leitzins 0')
     zins_2=st.number_input('2')
     zins_4=st.number_input('4')
@@ -23,6 +21,9 @@ with col2:
     zins_10=st.number_input('10')
     zins_12=st.number_input('12')
     zins_14=st.number_input('14')
+    
+with col2:
+
     zins_16=st.number_input('16')
     zins_18=st.number_input('18')
     zins_20=st.number_input('20')
