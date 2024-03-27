@@ -19,17 +19,17 @@ with col1:
     Start_zins=st.number_input('Start Leitzins 0',value=4.5)
     zins_2=st.number_input('2',value=3.5)
     zins_4=st.number_input('4',value=2)
-    zins_6=st.number_input('6',value=2.5)
-    zins_8=st.number_input('8',value=2.5)
+    zins_6=st.number_input('6',value=1.5)
+    zins_8=st.number_input('8',value=1.5)
     zins_10=st.number_input('10',value=2.0)
     zins_12=st.number_input('12',value=2.0)
-    zins_14=st.number_input('14',value=3.0)
+    zins_14=st.number_input('14',value=2.5)
     st.write('Past Leitzins')
     ezb_image = st.image('./chart.jpeg')
     
 with col2:
 
-    zins_16=st.number_input('16',value=4.0)
+    zins_16=st.number_input('16',value=3.0)
     zins_18=st.number_input('18',value=4.0)
     zins_20=st.number_input('20',value=3.0)
     zins_22=st.number_input('22',value=2.0)
