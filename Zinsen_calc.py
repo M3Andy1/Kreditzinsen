@@ -37,7 +37,7 @@ with col2:
     zins_26=st.number_input('26',value=1.5)
     zins_28=st.number_input('28',value=1.5)
     zins_30=st.number_input('30',value=1.5)
-    st.write('Predicted Leitzins every 2 years') 
+    st.write('Predicted Leitzins every year') 
     predicted_EZB=[Start_zins,zins_2,zins_4,zins_4,zins_6,zins_6,zins_8,zins_8,zins_10,zins_10,zins_12,zins_12,zins_14,zins_14,zins_16,zins_16,zins_18,zins_18,zins_20,zins_20,zins_22,zins_22,zins_24,zins_24,zins_26,zins_26,zins_28,zins_28,zins_30,zins_30]
     x_values = np.linspace(0, 29, 30)
     predicted_EZB_m_Aufschlag= [x + EZB_Aufschlag for x in predicted_EZB]
@@ -52,7 +52,7 @@ with col2:
 st.write('Kredit Berechnung')
 Kreditsumme=st.number_input('Kreditbetrag',value=300000)
 Laufzeit=st.number_input('Laufzeit Jahre',value=30)
-
+Fixzinsgarantie=st.number_input('Fixzinsgarantie in Jahren',value=15)
 
 
 zero_zins_rate=Kreditsumme*1.05/Laufzeit
@@ -61,10 +61,15 @@ Kreditrestwert=[]
 Monatsrate=[]
 Restwert=Kreditsumme*1.05
 for i in range (0,Laufzeit):
+    
     Zinsen=Restwert*((Fix_Zins+EZB_Aufschlag)/100)
     Monatsrate.append(Zinsen+zero_zins_rate)
     Restwert=Restwert-zero_zins_rate
     Kreditrestwert.append(Restwert)
+
+
+
+
 
 st.write(Monatsrate)
 st.write(Kreditrestwert) 
@@ -79,7 +84,7 @@ cash=0
 for a in range (0,Laufzeit):
     
     Gesamtrueckzahlung.append(cash)
-    cash=cash+np.mean(Monatsrate)
+    cash=cash+np.Monatsrate[a]
     
 Laufzeit_list=np.linspace(0, Laufzeit-1, Laufzeit)
 
